@@ -1,0 +1,45 @@
+&control_common
+
+   RunMode = 0
+   IF_Viscous = 1
+   IF_Character = 0
+
+   Scheme_Invis = 'LINEAR5'
+   Scheme_Vis = 'CD6'
+
+   nx_global = 201
+   ny_global = 201
+      
+   Ma = 0.1D0
+   Re = 900.0D0
+   gamma = 1.4D0
+   Pr = 0.72D0 
+   T_inf = 288.15D0
+
+   Istep_Show = 100
+   Istep_Save = 10000
+   
+   BoundaryCondition = 'BC_Lid_Driven_Cavity'
+
+/
+&control_cfd2d
+
+   IF_init = 2
+
+   dt = 0.00015D0
+   End_time = 400.0D0
+   
+/
+&control_gsa2d
+
+   IF_init = 0
+
+   dt = 0.0001D0
+   End_time = 0.5D0
+
+   tol = 1.d-8
+   nev = 20
+   max_iter = 100
+   wavenumber = 7.35D0
+
+/

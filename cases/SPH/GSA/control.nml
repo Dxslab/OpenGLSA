@@ -1,0 +1,49 @@
+&control_common
+
+   RunMode = 1
+   
+   IF_Viscous = 1
+   IF_Cylindrical_Coordinate = 1
+   IF_Character = 0
+   Scheme_Invis = 'LINEAR5'
+   Scheme_Vis = 'CD6'
+
+   nx_global = 241
+   ny_global = 361
+      
+   Ma = 0.1d0
+   Re = 213.0d0
+   gamma = 1.4d0
+   Pr = 0.72d0 
+   T_inf = 288.15d0
+
+   Istep_Show = 1000
+   Istep_Save = 100000
+
+   Isymmetric_X = 1, 1
+   
+   BoundaryCondition = 'BC_Sphere'
+
+/
+&control_cfd2d
+
+   IF_init = 0
+
+   dt = 0.0001d0
+   End_time = 600.0d0
+   
+/
+&control_gsa2d
+
+   IF_init = 0
+
+   dt = 0.0001d0
+   End_time = 1.0D0
+
+   tol = 1.d-8
+   nev = 1
+   ncv = 40
+   max_iter = 20
+   wavenumber = 1.0D0
+
+/

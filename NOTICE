@@ -1,0 +1,26 @@
+OpenGLSA 1.0
+
+OpenGLSA is distributed under the Apache License, Version 2.0.
+Copyright (c) 2026 Ruiqing Yang and Baofeng Ma.
+This notice covers original OpenGLSA contributions and project modifications;
+upstream copyrights are retained below.
+
+This product includes portions adapted from OpenCFD-SC:
+  https://github.com/OpenCFD-IMECH/OpenCFD-SC
+  Copyright 2021 Xinliang Li
+  Institute of Mechanics, Chinese Academy of Sciences
+  Apache License, Version 2.0
+
+OpenCFD-SC source notices include:
+  Copyright by Li Xinliang
+  Copyright by Li Xinliang, lixl@lnm.imech.ac.cn
+  CopyRight by Li Xinliang, LHD, Institute of Mechanics, CAS,
+  lixl@imech.ac.cn
+
+The Apache License, Version 2.0 is provided in LICENSE.
+Adapted source files carry upstream attribution and modification notices.
+OpenGLSA is independently maintained; attribution does not imply endorsement.
+
+Externally installed libraries retain their own licenses. In particular,
+arpack-ng/PARPACK is BSD-3-Clause. Dependencies are not relicensed by this
+NOTICE or by LICENSE.

@@ -1,0 +1,64 @@
+! See docs/USER_MANUAL.md for options, mode-specific files and post-processing.
+! Supply a matching mesh and case data; this template alone is not a test case.
+&control_common
+
+   RunMode = 0
+   IF_Character = 0
+   pp_limiter = 0
+   
+   IF_Viscous = 1
+   IF_Cylindrical_Coordinate = 1
+
+   Scheme_Invis = 'LINEAR5'
+   Scheme_Vis = 'CD6'
+
+   nx_global = 361
+   ny_global = 641
+   LAP = 4
+      
+   Ma = 1.2D0
+   Re = 600.0D0
+   gamma = 1.4D0
+   Pr = 0.72D0 
+   T_inf = 287.0D0
+
+   Istep_Show = 100
+   Istep_Save = 10000
+
+   Isymmetric_X = 1, 1
+   Isymmetric_Y = 0, 0
+   Iperiodic_X = 0
+   Iperiodic_Y = 0
+   Periodic_ISpan = 1.0D0, 0.0D0
+   Periodic_JSpan = 0.0D0, 1.0D0
+   
+   BoundaryCondition = 'BC_Sphere'
+   BC_Para = 0.0D0
+
+/
+&control_cfd2d
+
+   IF_init = 0
+
+   dt = 0.001D0
+   End_time = 100.0D0
+
+   IF_SFD = 0
+   Chi = 0.0D0
+   Delta = 1.0D0
+   
+/
+&control_gsa2d
+
+   IF_init = 0
+
+   dt = 0.001D0
+   End_time = 100.0D0
+
+   tol = 1.d-10
+   nev = 5
+   ncv = 30
+   max_iter = 10
+   wavenumber = 1.0D0
+
+/

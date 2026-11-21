@@ -1,0 +1,39 @@
+&control_common
+
+   RunMode = 0
+   IF_Viscous = 1
+   IF_Character = 2
+   pp_limiter = 1
+   Scheme_Invis = 'WENOMR5'
+   Scheme_Vis = 'CD6'
+   nx_global = 1601
+   ny_global = 321
+   Ma = 7.7D0
+   Re = 4200.0D0
+   T_inf = 125.0D0
+   Istep_Show = 10
+   Istep_Save = 1000
+   BoundaryCondition = 'BC_Flat_Plate'
+   BC_para = 0.d0, 2.344d0
+
+/
+&control_cfd2d
+
+   IF_init = 1
+   dt = 0.0005D0
+   End_time = 10.0D0
+
+/
+&control_gsa2d
+
+   IF_init = 0
+   dt = 0.0005D0
+   End_time = 2.0D0
+
+   tol = 1.d-8
+   nev = 41
+   ncv = 101
+   max_iter = 100
+   wavenumber = 0.95D0
+
+/
