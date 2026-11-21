@@ -111,6 +111,11 @@ subroutine read_parameters
         end if
         close (66)
 
+        if (RunMode /= 0) then
+            IF_Character = 0             ! LNS/GSA: Steger-Warming splitting; comment out to use other splitting (IF_Character)
+            Scheme_Invis = "LINEAR5"     ! LNS/GSA: linear 5th-order upwind; comment out to use other schemes (Scheme_Invis)
+        end if
+
         print *, "====================== Parameters read from control.nml ======================"
         if (RunMode == 0) then
             print *, "*** Solver: Navier-Stokes time-stepping solver ***"
@@ -248,10 +253,6 @@ subroutine read_parameters
 
     Para%Cv = 1.0d0/(Para%gamma*(Para%gamma-1.0d0)*Para%Ma**2)
     Para%Cp = Para%gamma*Para%Cv
-
-    if (Para%RunMode /= 0) then
-        Scheme%Scheme_Invis = OCFD_Scheme_LINEAR5
-    end if
 
     select case (Scheme%Scheme_Invis)
     case (OCFD_Scheme_WENOZ5, OCFD_Scheme_WENOZQ5, OCFD_Scheme_WENOMR5, OCFD_Scheme_LINEAR5)
